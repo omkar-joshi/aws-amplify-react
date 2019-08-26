@@ -2,9 +2,9 @@ import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 import React, { useEffect, useReducer } from 'react';
 import { Button, Col, Container, Form, Row, Table } from 'react-bootstrap';
-import awsConfig from './aws-exports';
 
 import './App.css';
+import awsConfig from './aws-exports';
 import { createRestaurant } from './graphql/mutations';
 import { listRestaurants } from './graphql/queries';
 import { onCreateRestaurant } from './graphql/subscriptions';
@@ -32,7 +32,7 @@ type Action =
       payload: Restaurant;
     }
   | {
-      type: 'FORM_CHANGE';
+      type: 'SET_FORM_DATA';
       payload: { [field: string]: string };
     };
 
@@ -56,7 +56,7 @@ const reducer = (state: AppState, action: Action) => {
       return { ...state, restaurants: action.payload };
     case 'SUBSCRIPTION':
       return { ...state, restaurants: [...state.restaurants, action.payload] };
-    case 'FORM_CHANGE':
+    case 'SET_FORM_DATA':
       return { ...state, formData: { ...state.formData, ...action.payload } };
     default:
       return state;
@@ -100,7 +100,7 @@ const App: React.FC = () => {
 
   const handleChange = (e: any) =>
     dispatch({
-      type: 'FORM_CHANGE',
+      type: 'SET_FORM_DATA',
       payload: { [e.target.name]: e.target.value },
     });
 
