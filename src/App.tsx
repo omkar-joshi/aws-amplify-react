@@ -126,30 +126,32 @@ const App: React.FC = () => {
           </Col>
         </Row>
 
-        <Row className="my-3">
-          <Col>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>City</th>
-                </tr>
-              </thead>
-              <tbody>
-                {state.restaurants.map((restaurant, index) => (
-                  <tr key={`restaurant-${index}`}>
-                    <td>{index + 1}</td>
-                    <td>{restaurant.name}</td>
-                    <td>{restaurant.description}</td>
-                    <td>{restaurant.city}</td>
+        {state.restaurants.length ? (
+          <Row className="my-3">
+            <Col>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>City</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
+                </thead>
+                <tbody>
+                  {state.restaurants.map((restaurant, index) => (
+                    <tr key={`restaurant-${index}`}>
+                      <td>{index + 1}</td>
+                      <td>{restaurant.name}</td>
+                      <td>{restaurant.description}</td>
+                      <td>{restaurant.city}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Col>
+          </Row>
+        ) : null}
       </Container>
     </div>
   );
