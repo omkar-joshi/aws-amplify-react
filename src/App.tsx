@@ -9,10 +9,7 @@ import { createRestaurant } from './graphql/mutations';
 import { listRestaurants } from './graphql/queries';
 import { onCreateRestaurant } from './graphql/subscriptions';
 
-Amplify.configure({
-  ...awsConfig,
-  aws_appsync_apiKey: 'da2-axcjzewzenckxkoklzfvwvztl4',
-});
+Amplify.configure(awsConfig);
 
 type Restaurant = {
   name: string;

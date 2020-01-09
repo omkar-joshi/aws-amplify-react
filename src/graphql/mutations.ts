@@ -1,8 +1,11 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const createRestaurant = `mutation CreateRestaurant($input: CreateRestaurantInput!) {
-  createRestaurant(input: $input) {
+export const createRestaurant = `mutation CreateRestaurant(
+  $input: CreateRestaurantInput!
+  $condition: ModelRestaurantConditionInput
+) {
+  createRestaurant(input: $input, condition: $condition) {
     id
     clientId
     name
@@ -11,8 +14,11 @@ export const createRestaurant = `mutation CreateRestaurant($input: CreateRestaur
   }
 }
 `;
-export const updateRestaurant = `mutation UpdateRestaurant($input: UpdateRestaurantInput!) {
-  updateRestaurant(input: $input) {
+export const updateRestaurant = `mutation UpdateRestaurant(
+  $input: UpdateRestaurantInput!
+  $condition: ModelRestaurantConditionInput
+) {
+  updateRestaurant(input: $input, condition: $condition) {
     id
     clientId
     name
@@ -21,8 +27,11 @@ export const updateRestaurant = `mutation UpdateRestaurant($input: UpdateRestaur
   }
 }
 `;
-export const deleteRestaurant = `mutation DeleteRestaurant($input: DeleteRestaurantInput!) {
-  deleteRestaurant(input: $input) {
+export const deleteRestaurant = `mutation DeleteRestaurant(
+  $input: DeleteRestaurantInput!
+  $condition: ModelRestaurantConditionInput
+) {
+  deleteRestaurant(input: $input, condition: $condition) {
     id
     clientId
     name

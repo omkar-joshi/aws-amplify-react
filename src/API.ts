@@ -9,6 +9,56 @@ export type CreateRestaurantInput = {
   city: string,
 };
 
+export type ModelRestaurantConditionInput = {
+  clientId?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  city?: ModelStringInput | null,
+  and?: Array< ModelRestaurantConditionInput | null > | null,
+  or?: Array< ModelRestaurantConditionInput | null > | null,
+  not?: ModelRestaurantConditionInput | null,
+};
+
+export type ModelStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
+};
+
+export enum ModelAttributeTypes {
+  binary = "binary",
+  binarySet = "binarySet",
+  bool = "bool",
+  list = "list",
+  map = "map",
+  number = "number",
+  numberSet = "numberSet",
+  string = "string",
+  stringSet = "stringSet",
+  _null = "_null",
+}
+
+
+export type ModelSizeInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+};
+
 export type UpdateRestaurantInput = {
   id: string,
   clientId?: string | null,
@@ -22,17 +72,17 @@ export type DeleteRestaurantInput = {
 };
 
 export type ModelRestaurantFilterInput = {
-  id?: ModelIDFilterInput | null,
-  clientId?: ModelStringFilterInput | null,
-  name?: ModelStringFilterInput | null,
-  description?: ModelStringFilterInput | null,
-  city?: ModelStringFilterInput | null,
+  id?: ModelIDInput | null,
+  clientId?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  city?: ModelStringInput | null,
   and?: Array< ModelRestaurantFilterInput | null > | null,
   or?: Array< ModelRestaurantFilterInput | null > | null,
   not?: ModelRestaurantFilterInput | null,
 };
 
-export type ModelIDFilterInput = {
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -43,23 +93,14 @@ export type ModelIDFilterInput = {
   notContains?: string | null,
   between?: Array< string | null > | null,
   beginsWith?: string | null,
-};
-
-export type ModelStringFilterInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
 };
 
 export type CreateRestaurantMutationVariables = {
   input: CreateRestaurantInput,
+  condition?: ModelRestaurantConditionInput | null,
 };
 
 export type CreateRestaurantMutation = {
@@ -75,6 +116,7 @@ export type CreateRestaurantMutation = {
 
 export type UpdateRestaurantMutationVariables = {
   input: UpdateRestaurantInput,
+  condition?: ModelRestaurantConditionInput | null,
 };
 
 export type UpdateRestaurantMutation = {
@@ -90,6 +132,7 @@ export type UpdateRestaurantMutation = {
 
 export type DeleteRestaurantMutationVariables = {
   input: DeleteRestaurantInput,
+  condition?: ModelRestaurantConditionInput | null,
 };
 
 export type DeleteRestaurantMutation = {

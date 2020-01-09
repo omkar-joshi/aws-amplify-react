@@ -1,6 +1,6 @@
 projects:
   RestaurantAPI:
-    schemaPath: src\graphql\schema.json
+    schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.ts
     excludes:
@@ -9,8 +9,8 @@ projects:
       amplify:
         codeGenTarget: typescript
         generatedFileName: src/API.ts
-        docsFilePath: src\graphql
+        docsFilePath: src/graphql
         graphQLApiId: 3ymxj2yiwnemhf4b72hy3sdqzu
-      endpoints:
-        prod: >-
-          https://akjqkyc2yfe6vmuk4u5pcrkzji.appsync-api.ap-south-1.amazonaws.com/graphql
+extensions:
+  amplify:
+    version: 3

@@ -1,19 +1,20 @@
 {
-	"dev": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify-gql-app-20190826191420-authRole",
-			"UnauthRoleArn": "arn:aws:iam::651204778228:role/amplify-gql-app-20190826191420-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::651204778228:role/amplify-gql-app-20190826191420-authRole",
-			"Region": "ap-south-1",
-			"DeploymentBucketName": "amplify-gql-app-20190826191420-deployment",
-			"UnauthRoleName": "amplify-gql-app-20190826191420-unauthRole",
-			"StackName": "amplify-gql-app-20190826191420",
-			"StackId": "arn:aws:cloudformation:ap-south-1:651204778228:stack/amplify-gql-app-20190826191420/9acaa990-c807-11e9-b0ae-029dd5210352"
-		},
-		"categories": {
-			"auth": {
-				"cognitof344e9e9": {}
-			}
-		}
-	}
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-gql-app-20190826191420-authRole",
+            "UnauthRoleArn": "arn:aws:iam::651204778228:role/amplify-gql-app-20190826191420-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::651204778228:role/amplify-gql-app-20190826191420-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "amplify-gql-app-20190826191420-deployment",
+            "UnauthRoleName": "amplify-gql-app-20190826191420-unauthRole",
+            "StackName": "amplify-gql-app-20190826191420",
+            "StackId": "arn:aws:cloudformation:ap-south-1:651204778228:stack/amplify-gql-app-20190826191420/9acaa990-c807-11e9-b0ae-029dd5210352",
+            "AmplifyAppId": "d24gj9yucgzt2z"
+        },
+        "categories": {
+            "auth": {
+                "cognitof344e9e9": {}
+            }
+        }
+    }
 }
