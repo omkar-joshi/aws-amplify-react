@@ -9,7 +9,10 @@ import { createRestaurant } from './graphql/mutations';
 import { listRestaurants } from './graphql/queries';
 import { onCreateRestaurant } from './graphql/subscriptions';
 
-Amplify.configure(awsConfig);
+Amplify.configure({
+  ...awsConfig,
+  aws_appsync_apiKey: 'da2-axcjzewzenckxkoklzfvwvztl4',
+});
 
 type Restaurant = {
   name: string;
@@ -72,7 +75,9 @@ const App: React.FC = () => {
       description,
       city,
     };
-    await API.graphql(graphqlOperation(createRestaurant, { input: restaurant }));
+    await API.graphql(
+      graphqlOperation(createRestaurant, { input: restaurant }),
+    );
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -80,8 +85,12 @@ const App: React.FC = () => {
   useEffect(() => {
     getRestaurantList();
 
-    const subscription = API.graphql(graphqlOperation(onCreateRestaurant)).subscribe({
-      next: (eventData: SubscriptionEvent<{ onCreateRestaurant: Restaurant }>) => {
+    const subscription = API.graphql(
+      graphqlOperation(onCreateRestaurant),
+    ).subscribe({
+      next: (
+        eventData: SubscriptionEvent<{ onCreateRestaurant: Restaurant }>,
+      ) => {
         const payload = eventData.value.data.onCreateRestaurant;
         dispatch({ type: 'SUBSCRIPTION', payload });
       },
@@ -111,13 +120,28 @@ const App: React.FC = () => {
           <Col md={4}>
             <Form>
               <Form.Group controlId="formDataName">
-                <Form.Control onChange={handleChange} type="text" name="name" placeholder="Name" />
+                <Form.Control
+                  onChange={handleChange}
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                />
               </Form.Group>
               <Form.Group controlId="formDataDescription">
-                <Form.Control onChange={handleChange} type="text" name="description" placeholder="Description" />
+                <Form.Control
+                  onChange={handleChange}
+                  type="text"
+                  name="description"
+                  placeholder="Description"
+                />
               </Form.Group>
               <Form.Group controlId="formDataCity">
-                <Form.Control onChange={handleChange} type="text" name="city" placeholder="City" />
+                <Form.Control
+                  onChange={handleChange}
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                />
               </Form.Group>
               <Button onClick={createNewRestaurant} className="float-left">
                 Add New Restaurant
